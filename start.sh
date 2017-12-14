@@ -10,9 +10,9 @@ choose_info="
 2. Install RPM dependency Only
 3. Install ICC with licenses Only
 4. Install DPDK Only
-5. Install PKTGEN
+5. Install PKTGEN Only
 6. System configuration to update extlinux.conf
-0. Exit.
+0. Exit
 Input you choice:"
 
 while [ 1 ]; do

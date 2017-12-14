@@ -17,7 +17,7 @@ else
     if [ $? == 0 ];then
         echo "ICC is installed successfully."
     else
-        echo "ISS is installed failed."
+        echo "ICC is installed failed."
     fi
 fi
 

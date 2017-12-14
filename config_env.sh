@@ -2,7 +2,8 @@
 
 diff extlinux.conf /boot/extlinux.conf >/dev/null
 if [ $? != 0 ]; then
-    read -p "System setting is incorrect, do you want to fix it and reboot [y/n]:" choose
+    read -p "System configuration need update,
+    will reboot after applied [y/n]:" choose
     if [ "$choose" = "y" ] || [ "$choose" = "Y" ];then
         cp extlinux.conf /boot/extlinux.conf
         echo "System will reboot after 5 seconds."
