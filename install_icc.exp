@@ -60,15 +60,17 @@ expect "*:" {
     send "\r"
 }
 
-set timeout 500
 expect "*:" {
     send "\r"
 }
 
 #step 7
-set timeout 20
-expect "Press \"Enter\" key to quit:" {
+set timeout 500
+expect -re "Press \"Enter\" key to quit:" {
     send "\r"
 }
+
+set timeout 300
+expect eof
 
 

@@ -12,11 +12,15 @@ choose_info="
 4. Install DPDK Only
 5. Install PKTGEN
 6. System configuration to update extlinux.conf
+0. Exit.
 Input you choice:"
 
 while [ 1 ]; do
     read -p "$choose_info" choose
     case "$choose" in
+        "0")
+            exit 1
+            ;;
         "1")
             cd ${SCRIPT_FOLDER}
             . ./install_rpm.sh
