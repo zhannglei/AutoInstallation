@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 . ./config.sh
-
+. ./common_fun.sh
 . ./install_license.sh
 
+check_rpm
 icc -v >> /dev/null
 if [ $? == 0 ];then
     echo "ICC has already installed"

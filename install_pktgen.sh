@@ -1,11 +1,12 @@
 . ./config.sh
-
+. ./common_fun.sh
 #cd ${PKG_PATH}/x86_64-native-linuxapp-gcc/app/
 
 #pkt_macs=`python ~/cli.py -i $dpdk_ip -m "$my_mac"`
 #mac1=`echo $pkt_macs|awk '{print $1}'`
 #mac2=`echo $pkt_macs|awk '{print $2}'`
 
+check_icc_and_install
 
 cd ${PKTGEN_FOLDER}
 pktgen_pkg=`ls -F |grep "pktgen.*/$"`

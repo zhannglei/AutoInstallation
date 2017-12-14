@@ -1,3 +1,4 @@
+. ./config.sh
 function mount_huge(){
     [ ! -d /mnt/huge ] && mkdir -p /mnt/huge
     mount |grep /mnt/huge ||  mount -t hugetlbfs nodev /mnt/huge
@@ -40,4 +41,39 @@ function bind_dpdk(){
         $DPDK_BIND_TOOL -b igb_uio $eth_id
         [ $? == "0" ] && echo "bind $eth_id success" || echo "bind $eth_id fail"
     done
+}
+
+function check_rpm(){
+    rpms="gcc-c++-4.8.5-16.el7.x86_64
+    kernel-devel-3.10.0-693.el7.x86_64
+    libhugetlbfs-devel-2.16-12.el7.x86_64"
+    for rpm in rpms;do
+        rpm -q $rpm >> /dev/null
+        if [ $? != 0 ];then
+            echo "$rpm not installed"
+            return 1
+        fi
+    done
+    return 0
+}
+
+function check_rpm_and_install(){
+    check_rpm
+    if [ $? != 0 ];then
+        cd ${SCRIPT_FOLDER}
+           . ./install_rpm.sh
+        cd -
+    fi
+}
+
+function check_icc_and_install(){
+    source /opt/intel/compilers_and_libraries/linux/bin/compilervars.sh  intel64
+    icc -v > /dev/null
+    if [ $? != 0 ];then
+        read -p "ICC has not been installed, do you want to install ICC, default y [y/n]:" answer
+        if [ "$answer" == "y" ] || [ "$answer" == "Y" ] || [ "$answer" == "" ];then
+            . ./install_icc.sh
+        fi
+
+    fi
 }

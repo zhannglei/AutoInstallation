@@ -3,6 +3,8 @@
 . ./config.sh
 . ./common_fun.sh
 
+check_icc_and_install
+
 cd ${DPDK_FOLDER}
 dpdk_pkg=`ls -F |grep dpdk.*/$`
 dpdk_tar=`ls -F |grep dpdk.*[^/]$`
