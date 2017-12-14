@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 #folder
 export BASE_FOLDER=/root/APP
 export SCRIPT_FOLDER=${BASE_FOLDER}/Preinstall_script/test_shell
