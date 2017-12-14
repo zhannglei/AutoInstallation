@@ -1,1 +1,4 @@
-run ./start.sh
+
+run ./start.sh to start
+
+
