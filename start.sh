@@ -12,6 +12,7 @@ choose_info="
 4. Install DPDK Only
 5. Install PKTGEN Only
 6. System configuration to update extlinux.conf
+7. Bind DPDK port Only
 0. Exit
 Input you choice:"
 
@@ -54,6 +55,10 @@ while [ 1 ]; do
         "6")
             cd ${SCRIPT_FOLDER}
             . ./config_env.sh
+            ;;
+        "7")
+            cd ${SCRIPT_FOLDER}
+            . ./bind_port.sh
             ;;
         "*")
             echo "Your choose is not match, please try again."
