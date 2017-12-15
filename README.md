@@ -1,4 +1,4 @@
-
-run ./start.sh to start
+# How to start
+    run ./start.sh to start
 
 
