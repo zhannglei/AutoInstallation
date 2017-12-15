@@ -1,12 +1,8 @@
+#!/usr/bin/env bash
 . ./config.sh
 . ./common_fun.sh
-#cd ${PKG_PATH}/x86_64-native-linuxapp-gcc/app/
 
-#pkt_macs=`python ~/cli.py -i $dpdk_ip -m "$my_mac"`
-#mac1=`echo $pkt_macs|awk '{print $1}'`
-#mac2=`echo $pkt_macs|awk '{print $2}'`
-
-check_icc_and_install
+check_dpdk_and_install
 
 cd ${PKTGEN_FOLDER}
 pktgen_pkg=`ls -F |grep "pktgen.*/$"`
@@ -22,12 +18,6 @@ else
     rpm -q libpcap-devel-1.5.3-8.el7.x86_64
     if [ $? != 0 ];then
         echo "libpcap is not installed."
-        exit 1
-    fi
-
-    find ${DPDK_FOLDER} -name igb_uio.ko
-    if [ $? != "0" ];then
-        echo "DPDK is not installed "
         exit 1
     fi
 

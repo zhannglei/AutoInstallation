@@ -17,6 +17,7 @@ Input you choice:"
 
 while [ 1 ]; do
     read -p "$choose_info" choose
+    stop_trap_signal
     case "$choose" in
         "0")
             exit 1
@@ -57,4 +58,5 @@ while [ 1 ]; do
         "*")
             echo "Your choose is not match, please try again."
     esac
+    start_trap_signal
 done

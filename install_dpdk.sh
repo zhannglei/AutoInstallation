@@ -14,14 +14,10 @@ export RTE_SDK=$PWD/${dpdk_pkg}
 export RTE_TARGET=x86_64-native-linuxapp-icc
 cd $dpdk_pkg
 
-    if [ -f x86_64-native-linuxapp-icc/kmod/igb_uio.ko ];then
-        echo "DPDK has already installed."
-    else
-    source /opt/intel/compilers_and_libraries/linux/bin/compilervars.sh  intel64
-    if [ $? != 0 ]; then
-        echo "ICC is not installed, please install ICC first."
-        exit 1
-    fi
+if [ -f x86_64-native-linuxapp-icc/kmod/igb_uio.ko ];then
+    echo "DPDK has already installed."
+else
+
     rpm -q numactl-devel-2.0.9-6.el7_2.x86_64
     if [ $? != 0 ];then
         echo "numactl is not installed."

@@ -60,13 +60,12 @@ function check_rpm(){
 function check_rpm_and_install(){
     check_rpm
     if [ $? != 0 ];then
-        cd ${SCRIPT_FOLDER}
-           . ./install_rpm.sh
-        cd -
+       . ./install_rpm.sh
     fi
 }
 
 function check_icc_and_install(){
+    cd ${SCRIPT_FOLDER}
     source /opt/intel/compilers_and_libraries/linux/bin/compilervars.sh  intel64
     icc -v > /dev/null
     if [ $? != 0 ];then
@@ -76,4 +75,27 @@ function check_icc_and_install(){
         fi
 
     fi
+    cd ${SCRIPT_FOLDER}
+}
+
+function check_dpdk_and_install(){
+    cd ${SCRIPT_FOLDER}
+    find ${DPDK_FOLDER} -name igb_uio.ko
+    if [ $? != "0" ];then
+        read -p "DPDK is not installed, do you want to install DPDK, default y [y/n]" answer
+        if [ "$answer" == "y" ] || [ "$answer" == "Y" ] || [ "$answer" == "" ];then
+            . ./install_dpdk.sh
+        fi
+        exit 1
+    fi
+    cd ${SCRIPT_FOLDER}
+}
+
+function stop_trap_signal(){
+    trap "Can not exit while install, please waiting it finished" 2 3
+}
+
+function start_trap_signal(){
+    trap : 2
+    trap : 3
 }
