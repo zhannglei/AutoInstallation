@@ -5,6 +5,7 @@ export BASE_FOLDER=/root/APP
 export SCRIPT_FOLDER=${BASE_FOLDER}/Configs/Preinstall_script/Auto_Installation
 export DPDK_FOLDER=${BASE_FOLDER}/Utilities/DPDK
 export PKTGEN_FOLDER=${BASE_FOLDER}/Utilities/Pktgen
+export INSTALL_FOLDER=~/BKC
 export RPM_FOLDER=${BASE_FOLDER}/Configs/Preinstall_RPMs
 export LICENSE_FOLDER=${BASE_FOLDER}/ICC
 export ICC_FOLDER=${BASE_FOLDER}/ICC

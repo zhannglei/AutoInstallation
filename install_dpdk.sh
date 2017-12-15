@@ -6,13 +6,13 @@
 check_icc_and_install
 
 cd ${DPDK_FOLDER}
-dpdk_pkg=`ls -F |grep dpdk.*/$`
+dpdk_pkg=`ls -F ${INSTALL_FOLDER} |grep dpdk.*/$`
 dpdk_tar=`ls -F |grep dpdk.*[^/]$`
-[ "$dpdk_pkg" == "" ] && tar -xvf $dpdk_tar
-dpdk_pkg=`ls -F |grep dpdk.*/$`
-export RTE_SDK=$PWD/${dpdk_pkg}
+[ "$dpdk_pkg" == "" ] && tar -xvf $dpdk_tar -C ${INSTALL_FOLDER}
+dpdk_pkg=`ls -F ${INSTALL_FOLDER} |grep dpdk.*/$`
+export RTE_SDK=${INSTALL_FOLDER}/${dpdk_pkg}
 export RTE_TARGET=x86_64-native-linuxapp-icc
-cd $dpdk_pkg
+cd ${dpdk_pkg}
 
 if [ -f x86_64-native-linuxapp-icc/kmod/igb_uio.ko ];then
     echo "DPDK has already installed."

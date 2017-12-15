@@ -80,9 +80,9 @@ function check_icc_and_install(){
 
 function check_dpdk_and_install(){
     cd ${SCRIPT_FOLDER}
-    find ${DPDK_FOLDER} -name igb_uio.ko
+    find ${INSTALL_FOLDER} -name igb_uio.ko
     if [ $? != "0" ];then
-        read -p "DPDK is not installed, do you want to install DPDK, default y [y/n]" answer
+        read -p "DPDK has not been installed, do you want to install DPDK, default y [y/n]" answer
         if [ "$answer" == "y" ] || [ "$answer" == "Y" ] || [ "$answer" == "" ];then
             . ./install_dpdk.sh
         fi
