@@ -66,14 +66,13 @@ function check_rpm_and_install(){
 
 function check_icc_and_install(){
     cd ${SCRIPT_FOLDER}
-    source /opt/intel/compilers_and_libraries/linux/bin/compilervars.sh  intel64
-    icc -v > /dev/null
+    [ -f ${ICC_CONFIG_FILE} ] && source  ${ICC_CONFIG_FILE} intel64
+    icc -v &> /dev/null
     if [ $? != 0 ];then
         read -p "ICC has not been installed, do you want to install ICC, default y [y/n]:" answer
         if [ "$answer" == "y" ] || [ "$answer" == "Y" ] || [ "$answer" == "" ];then
             . ./install_icc.sh
         fi
-
     fi
     cd ${SCRIPT_FOLDER}
 }
@@ -92,10 +91,10 @@ function check_dpdk_and_install(){
 }
 
 function stop_trap_signal(){
-    trap "echo 'Can not exit while install, please waiting it finished'" 2 3
+    trap "" 2 3
 }
 
 function start_trap_signal(){
-    trap : 2
-    trap : 3
+    trap 2 3
+
 }

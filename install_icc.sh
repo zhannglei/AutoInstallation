@@ -6,8 +6,8 @@
 cd ${SCRIPT_FOLDER}
 check_rpm_and_install
 
-source /opt/intel/compilers_and_libraries/linux/bin/compilervars.sh  intel64
-icc -v >> /dev/null
+[ -f ${ICC_CONFIG_FILE} ] && source  ${ICC_CONFIG_FILE} intel64
+icc -v &> /dev/null
 if [ $? == 0 ];then
     echo "ICC has already installed"
 else
@@ -16,8 +16,8 @@ else
     cd parallel_studio_xe_2017_update1
     ${SCRIPT_FOLDER}/install_icc.exp
     sleep 10
-    source /opt/intel/compilers_and_libraries/linux/bin/compilervars.sh  intel64
-    icc -v >> /dev/null
+    source  ${ICC_CONFIG_FILE} intel64
+    icc -v &> /dev/null
     if [ $? == 0 ];then
         echo "ICC is installed successfully."
     else

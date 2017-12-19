@@ -4,7 +4,7 @@
 
 check_dpdk_and_install
 
-source /opt/intel/compilers_and_libraries/linux/bin/compilervars.sh  intel64
+[ -f ${ICC_CONFIG_FILE} ] && source  ${ICC_CONFIG_FILE} intel64
 
 cd ${PKTGEN_FOLDER}
 pktgen_pkg=`ls -F ${INSTALL_FOLDER} |grep "pktgen.*/$"`

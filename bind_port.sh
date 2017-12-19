@@ -5,7 +5,6 @@ DEVICES=$(lspci |egrep "00:0(4|5|6).0 (Eth|RAM)" |awk '{print $1}')
 
 ## Automatically unbind/rebind PCI devices
 #modprobe igb_uio
-USEDEVICES=""
 for DEVICE in ${DEVICES}; do
     DEVICE=0000:${DEVICE}
     UIO_DRIVER=/sys/bus/pci/drivers/igb_uio
@@ -24,5 +23,7 @@ for DEVICE in ${DEVICES}; do
     # Unbind from the old driver and bind to the new driver
     echo -n ${DEVICE} > ${SYSFS}/driver/unbind
     echo -n ${DEVICE} > ${UIO_DRIVER}/bind
-    USEDEVICES+=" --use-device ${DEVICE}"
+    [ $? == 0 ] && echo "bind port ${DEVICE} success" || "bind port ${DEVICE} failed"
 done
+
+

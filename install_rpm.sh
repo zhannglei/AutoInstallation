@@ -27,5 +27,3 @@ rpm_install -i libhugetlbfs-devel-2.16-12.el7.x86_64
 rpm_install -i libpcap-devel-1.5.3-8.el7.x86_64
 rpm_install -i numactl-devel-2.0.9-6.el7_2.x86_64
 rpm_install -i expect-5.45-14.el7_1.x86_64
-
-cd -
