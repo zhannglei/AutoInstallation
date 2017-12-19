@@ -4,12 +4,18 @@
 
 check_dpdk_and_install
 
+source /opt/intel/compilers_and_libraries/linux/bin/compilervars.sh  intel64
+
 cd ${PKTGEN_FOLDER}
 pktgen_pkg=`ls -F ${INSTALL_FOLDER} |grep "pktgen.*/$"`
 pktgen_tar=`ls -F |grep "pktgen.*[^/]$"`
 [ "$pktgen_pkg" == "" ] && tar -xvf $pktgen_tar -C ${INSTALL_FOLDER}
 pktgen_pkg=`ls -F ${INSTALL_FOLDER} |grep "pktgen.*/$"`
+dpdk_pkg=`ls -F ${INSTALL_FOLDER} |grep "dpdk.*/$"`
+export RTE_SDK=${INSTALL_FOLDER}/${dpdk_pkg}
+export RTE_TARGET=x86_64-native-linuxapp-icc
 
+cd ${INSTALL_FOLDER}
 cd ${pktgen_pkg}
 
 if [ -f app/x86_64-native-linuxapp-icc/pktgen ];then

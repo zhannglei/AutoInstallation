@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Assumes 3 nic guest, with first nic virtio
-DEVICES=$(lspci |egrep "00:0(4|5|6).0 (Eth|RAM)")
+DEVICES=$(lspci |egrep "00:0(4|5|6).0 (Eth|RAM)" |awk '{print $1}')
 
 ## Automatically unbind/rebind PCI devices
 #modprobe igb_uio

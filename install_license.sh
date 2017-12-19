@@ -10,3 +10,4 @@ else
     echo "not find licence file"
     exit 1
 fi
+cd -

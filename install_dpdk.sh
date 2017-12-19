@@ -9,9 +9,10 @@ cd ${DPDK_FOLDER}
 dpdk_pkg=`ls -F ${INSTALL_FOLDER} |grep dpdk.*/$`
 dpdk_tar=`ls -F |grep dpdk.*[^/]$`
 [ "$dpdk_pkg" == "" ] && tar -xvf $dpdk_tar -C ${INSTALL_FOLDER}
-dpdk_pkg=`ls -F ${INSTALL_FOLDER} |grep dpdk.*/$`
+dpdk_pkg=`ls -F ${INSTALL_FOLDER} |grep "dpdk.*/$"`
 export RTE_SDK=${INSTALL_FOLDER}/${dpdk_pkg}
 export RTE_TARGET=x86_64-native-linuxapp-icc
+cd ${INSTALL_FOLDER}
 cd ${dpdk_pkg}
 
 if [ -f x86_64-native-linuxapp-icc/kmod/igb_uio.ko ];then
@@ -31,6 +32,8 @@ else
         exit 1
     fi
 fi
+modprobe uio
+lsmod |grep igb_uio >> /dev/null || insmod x86_64-native-linuxapp-icc/kmod/igb_uio.ko
 
 #modprobe uio
 #lsmod |grep igb_uio >> /dev/null || insmod x86_64-native-linuxapp-icc/kmod/igb_uio.ko && echo "igb_uio installed"

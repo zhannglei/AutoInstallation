@@ -3,7 +3,10 @@
 . ./common_fun.sh
 . ./install_license.sh
 
-check_rpm
+cd ${SCRIPT_FOLDER}
+check_rpm_and_install
+
+source /opt/intel/compilers_and_libraries/linux/bin/compilervars.sh  intel64
 icc -v >> /dev/null
 if [ $? == 0 ];then
     echo "ICC has already installed"

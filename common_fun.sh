@@ -80,19 +80,19 @@ function check_icc_and_install(){
 
 function check_dpdk_and_install(){
     cd ${SCRIPT_FOLDER}
-    find ${INSTALL_FOLDER} -name igb_uio.ko
+    find ${INSTALL_FOLDER} -name igb_uio.ko |grep igb_uio.ko
     if [ $? != "0" ];then
         read -p "DPDK has not been installed, do you want to install DPDK, default y [y/n]" answer
         if [ "$answer" == "y" ] || [ "$answer" == "Y" ] || [ "$answer" == "" ];then
             . ./install_dpdk.sh
+        else
+            exit 1
         fi
-        exit 1
     fi
-    cd ${SCRIPT_FOLDER}
 }
 
 function stop_trap_signal(){
-    trap "Can not exit while install, please waiting it finished" 2 3
+    trap "echo 'Can not exit while install, please waiting it finished'" 2 3
 }
 
 function start_trap_signal(){
