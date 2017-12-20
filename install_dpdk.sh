@@ -15,7 +15,7 @@ export RTE_TARGET=x86_64-native-linuxapp-icc
 cd ${INSTALL_FOLDER}
 cd ${dpdk_pkg}
 
-if [ -f x86_64-native-linuxapp-icc/kmod/igb_uio.ko ];then
+if [ -f x86_64-native-linuxapp-icc/app/testpmd ];then
     echo "DPDK has already installed."
 else
 
@@ -25,7 +25,7 @@ else
         exit 1
     fi
     make install T=x86_64-native-linuxapp-icc
-    if [ -f x86_64-native-linuxapp-icc/kmod/igb_uio.ko ];then
+    if [ -f x86_64-native-linuxapp-icc/app/testpmd ];then
         echo "DPDK is installed successfully."
     else
         echo "DPDK is installed failed."

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+cd $(dirname $0)
 . ./config.sh
 . ./common_fun.sh
 choose_info="
@@ -12,7 +13,7 @@ choose_info="
 4. Install DPDK Only
 5. Install PKTGEN Only
 6. System configuration to update extlinux.conf
-7. Bind DPDK port Only
+7. Presetting for test (Bind DPDK port, mount hugepage)
 0. Exit
 Input you choice:"
 

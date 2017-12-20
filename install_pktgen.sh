@@ -37,5 +37,6 @@ else
     fi
 fi
 
+cp Pktgen.lua app/x86_64-native-linuxapp-icc/
 
 

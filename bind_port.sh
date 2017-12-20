@@ -1,7 +1,14 @@
 #!/usr/bin/env bash
-
+. ./config.sh
 # Assumes 3 nic guest, with first nic virtio
 DEVICES=$(lspci |egrep "00:0(4|5|6).0 (Eth|RAM)" |awk '{print $1}')
+
+modprobe uio
+lsmod |grep igb_uio >> /dev/null
+if [ $? != 0 ];then
+    dpdk_pkg=`ls -F ${INSTALL_FOLDER} |grep "dpdk.*/$"`
+    insmod ${INSTALL_FOLDER}/${dpdk_pkg}x86_64-native-linuxapp-icc/kmod/igb_uio.ko
+fi
 
 ## Automatically unbind/rebind PCI devices
 #modprobe igb_uio
@@ -26,4 +33,7 @@ for DEVICE in ${DEVICES}; do
     [ $? == 0 ] && echo "bind port ${DEVICE} success" || "bind port ${DEVICE} failed"
 done
 
-
+[ ! -d /mnt/huge ] && mkdir -p /mnt/huge
+mount |grep /mnt/huge ||  mount -t hugetlbfs nodev /mnt/huge
+[ $? == 0 ] && echo "mount huge ok"
+echo 2048 > /sys/kernel/mm/hugepages/hugepages-1048576kB/nr_hugepages
