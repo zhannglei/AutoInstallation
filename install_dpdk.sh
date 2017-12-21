@@ -35,26 +35,26 @@ fi
 modprobe uio
 lsmod |grep igb_uio >> /dev/null || insmod x86_64-native-linuxapp-icc/kmod/igb_uio.ko
 
-#modprobe uio
-#lsmod |grep igb_uio >> /dev/null || insmod x86_64-native-linuxapp-icc/kmod/igb_uio.ko && echo "igb_uio installed"
-#[ -d tools ] && DPDK_BIND_TOOL=${RTE_SDK}tools/dpdk-devbind.py
-#[ -d usertools ] && DPDK_BIND_TOOL=${RTE_SDK}usertools/dpdk-devbind.py
+cd ${INSTALL_FOLDER}/${dpdk_pkg}examples/l3fwd
+if [ -f build/l3fwd ];then
+    echo "l3fwd has already installed."
+else
+    if [ -f build/l3fwd ];then
+        echo "l3fwd is installed successfully."
+    else
+        echo "l3fwd is installed failed."
+        exit 1
+    fi
+fi
 
-#unbind_dpdk $DPDK_BIND_TOOL
-#sleep 3
-
-#
-
-
-#mount_huge
-#my_mac=`get_mac_address`
-#bind_dpdk $DPDK_BIND_TOOL
-
-#pkt_macs=`python ~/test/ser.py -m "$my_mac"`
-#mac1=`echo $pkt_macs|awk '{print $1}'`
-#mac2=`echo $pkt_macs|awk '{print $2}'`
-#
-
-
-
-
+cd ${INSTALL_FOLDER}/${dpdk_pkg}examples/l2fwd
+if [ -f build/l2fwd ];then
+    echo "l2fwd has already installed."
+else
+    if [ -f build/l3fwd ];then
+        echo "l2fwd is installed successfully."
+    else
+        echo "l2fwd is installed failed."
+        exit 1
+    fi
+fi
