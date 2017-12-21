@@ -11,7 +11,9 @@ dpdk_tar=`ls -F |grep dpdk.*[^/]$`
 [ "$dpdk_pkg" == "" ] && tar -xvf $dpdk_tar -C ${INSTALL_FOLDER}
 dpdk_pkg=`ls -F ${INSTALL_FOLDER} |grep "dpdk.*/$"`
 export RTE_SDK=${INSTALL_FOLDER}/${dpdk_pkg}
+add_bashrc "export RTE_SDK=${INSTALL_FOLDER}/${dpdk_pkg}"
 export RTE_TARGET=x86_64-native-linuxapp-icc
+add_bashrc "export RTE_TARGET=x86_64-native-linuxapp-icc"
 cd ${INSTALL_FOLDER}
 cd ${dpdk_pkg}
 
@@ -39,6 +41,7 @@ cd ${INSTALL_FOLDER}/${dpdk_pkg}examples/l3fwd
 if [ -f build/l3fwd ];then
     echo "l3fwd has already installed."
 else
+    make
     if [ -f build/l3fwd ];then
         echo "l3fwd is installed successfully."
     else
@@ -51,10 +54,13 @@ cd ${INSTALL_FOLDER}/${dpdk_pkg}examples/l2fwd
 if [ -f build/l2fwd ];then
     echo "l2fwd has already installed."
 else
-    if [ -f build/l3fwd ];then
+    make
+    if [ -f build/l2fwd ];then
         echo "l2fwd is installed successfully."
     else
         echo "l2fwd is installed failed."
         exit 1
     fi
 fi
+
+mount_huge

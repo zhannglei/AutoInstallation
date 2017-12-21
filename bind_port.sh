@@ -33,7 +33,4 @@ for DEVICE in ${DEVICES}; do
     [ $? == 0 ] && echo "bind port ${DEVICE} success" || "bind port ${DEVICE} failed"
 done
 
-[ ! -d /mnt/huge ] && mkdir -p /mnt/huge
-mount |grep /mnt/huge ||  mount -t hugetlbfs nodev /mnt/huge
-[ $? == 0 ] && echo "mount huge ok"
-echo 2048 > /sys/kernel/mm/hugepages/hugepages-1048576kB/nr_hugepages
+mount_huge

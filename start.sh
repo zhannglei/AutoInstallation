@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
-cd $(dirname $0)
+cd $(dirname ${BASH_SOURCE[0]})
 . ./config.sh
 . ./common_fun.sh
-choose_info="
+if [[ ! $PATH =~ ${SCRIPT_FOLDER} ]];then
+    PATH=$PATH:${SCRIPT_FOLDER}
+    add_bashrc "PATH=$PATH:${SCRIPT_FOLDER}"
+fi
+    choose_info="
 *****************************************
 *    Wireless BKC Auto Installation     *
 *****************************************

@@ -1,26 +1,21 @@
 . ./config.sh
 function mount_huge(){
     [ ! -d /mnt/huge ] && mkdir -p /mnt/huge
-    mount |grep /mnt/huge ||  mount -t hugetlbfs nodev /mnt/huge
+    add_bashrc "mkdir -p /mnt/huge"
+    add_bashrc "mount -t hugetlbfs nodev /mnt/huge"
+    mount |grep /mnt/huge >/dev/null ||  mount -t hugetlbfs nodev /mnt/huge
+    [ $? == 0 ] && echo "mount huge ok"
     echo 2048 > /sys/kernel/mm/hugepages/hugepages-1048576kB/nr_hugepages
+    add_bashrc "echo 2048 > /sys/kernel/mm/hugepages/hugepages-1048576kB/nr_hugepages"
 }
 
-#
-#function unbind_dpdk(){
-#    DPDK_BIND_TOOL=$1
-#    eth_ids=`$DPDK_BIND_TOOL --status |egrep -i "network devices$|network devices using dpdk" -A4 |grep "^0000" |awk '{print $1}'`
-#    for eth_id in $eth_ids; do
-#        $DPDK_BIND_TOOL -b virtio-pci $eth_id
-#        [ $? == "0" ] && echo "unbind $eth_id success" || echo "unbind $eth_id fail"
-#    done
-#    eth_ids=`$DPDK_BIND_TOOL --status |egrep -i "network devices$|network devices using dpdk" -A4 |grep "^0000" |awk '{print $1}'`
-#    for eth_id in $eth_ids; do
-#        $DPDK_BIND_TOOL -b virtio-pci $eth_id
-#        [ $? == "0" ] && echo "unbind $eth_id success" || echo "unbind $eth_id fail"
-#    done
-#
-#}
-
+function add_bashrc(){
+    str=$1
+    grep "$str" /root/.bashrc > /dev/null
+    if [ $? != 0 ];then
+        echo "$str" >> /root/.bashrc
+    fi
+}
 function get_mac_address(){
 #get mac address
     eths=`ifconfig -a |egrep ^e.*flags= |grep -v eth0 |awk -F : '{print $1}'`
