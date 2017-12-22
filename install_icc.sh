@@ -22,6 +22,7 @@ else
     icc -v &> /dev/null
     if [ $? == 0 ];then
         echo "ICC is installed successfully."
+        cd ..
         [ -d parallel_studio_xe_2017_update1 ] && rm -rf parallel_studio_xe_2017_update1
     else
         echo "ICC is installed failed."
