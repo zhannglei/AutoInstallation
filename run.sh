@@ -26,7 +26,7 @@ while [ 1 ]; do
     stop_trap_signal
     case "$choose" in
         "0")
-            exit 1
+            break
             ;;
         "1")
             cd ${SCRIPT_FOLDER}
