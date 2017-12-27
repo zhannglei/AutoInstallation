@@ -26,8 +26,11 @@ else
         echo "numactl is not installed."
         exit 1
     fi
-    cp ${SCRIPT_FOLDER}/patch/*.patch .
-    patch -p 1 < *.patch
+
+    # only for patch
+    if [ ${ADD_PATCH} == 1 ];then
+        . add_patch.sh
+    fi
     make install T=x86_64-native-linuxapp-icc
     if [ -f x86_64-native-linuxapp-icc/app/testpmd ];then
         echo "DPDK is installed successfully."
@@ -53,7 +56,6 @@ else
 fi
 
 cd ${INSTALL_FOLDER}/${dpdk_pkg}examples/l2fwd
-cp ${SCRIPT_FOLDER}/patch/main.c .
 if [ -f build/l2fwd ];then
     echo "l2fwd has already installed."
 else
