@@ -41,7 +41,6 @@ while [ 1 ]; do
             . ./install_pktgen.sh
             cd ${SCRIPT_FOLDER}
             . ./config_env.sh
-            break
             ;;
         "2")
             cd ${SCRIPT_FOLDER}
@@ -79,7 +78,6 @@ while [ 1 ]; do
             . ./install_pktgen.sh
             cd ${SCRIPT_FOLDER}
             . ./config_env.sh
-            break
             ;;
         "*")
             echo "Your choose is not match, please try again."

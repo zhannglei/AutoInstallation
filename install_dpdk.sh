@@ -29,7 +29,7 @@ else
 
     # only for patch
     if [ ${ADD_PATCH} == 1 ];then
-        . add_patch.sh
+        . ${SCRIPT_FOLDER}/add_patch.sh
     fi
     make install T=x86_64-native-linuxapp-icc
     if [ -f x86_64-native-linuxapp-icc/app/testpmd ];then

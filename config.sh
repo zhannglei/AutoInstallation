@@ -1,8 +1,13 @@
 #!/usr/bin/env bash
 
+# this script can only be used under this folder
+# for example: . config.sh
+
 #folder
-export BASE_FOLDER=/root/APP
-export SCRIPT_FOLDER=${BASE_FOLDER}/Configs/Preinstall_script/Auto_Installation
+export SCRIPT_FOLDER=${PWD}
+export BASE_FOLDER=${SCRIPT_FOLDER/\/Configs\/Preinstall_script\/Auto_Installation/}
+#export BASE_FOLDER=/root/APP
+#export SCRIPT_FOLDER=${BASE_FOLDER}/Configs/Preinstall_script/Auto_Installation
 export DPDK_FOLDER=${BASE_FOLDER}/Utilities/DPDK
 export PKTGEN_FOLDER=${BASE_FOLDER}/Utilities/Pktgen
 export INSTALL_FOLDER=~/BKC

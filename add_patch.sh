@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # run under dpdk path
-. ./config.sh
+
 cp ${SCRIPT_FOLDER}/patch/*.patch .
 patch -p 1 < *.patch
 
