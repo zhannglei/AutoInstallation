@@ -9,6 +9,7 @@ export BASE_FOLDER=${SCRIPT_FOLDER/\/Configs\/Preinstall_script\/Auto_Installati
 #export BASE_FOLDER=/root/APP
 #export SCRIPT_FOLDER=${BASE_FOLDER}/Configs/Preinstall_script/Auto_Installation
 export DPDK_FOLDER=${BASE_FOLDER}/Utilities/DPDK
+export QAT_FOLDER=${BASE_FOLDER}/Drivers/QAT
 export PKTGEN_FOLDER=${BASE_FOLDER}/Utilities/Pktgen
 export INSTALL_FOLDER=~/BKC
 [ ! -d ${INSTALL_FOLDER} ] && mkdir ${INSTALL_FOLDER}
