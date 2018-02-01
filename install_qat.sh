@@ -6,14 +6,14 @@
 check_rpm_and_install
 lspci |grep 37c9
 if [ $? == 0 ];then
-    cd ${QAT_FOLDER}
+    cd ${INSTALL_FOLDER}
     if [ -f qat_package/build/adf_ctl ];then
         echo "QAT has already installed"
     else
-        qat_tar=`ls -F |grep qat.*[^/]$`
+        qat_tar=`ls -F ${QAT_FOLDER}|grep qat.*[^/]$`
         [ ! -d qat_package ] && mkdir qat_package
         if [ ! -f qat_package/installer.sh ];then
-            tar -xf ${qat_tar} -C qat_package
+            tar -xf ${QAT_FOLDER}/${qat_tar} -C qat_package
         fi
         cd qat_package
         ${SCRIPT_FOLDER}/install_qat.exp

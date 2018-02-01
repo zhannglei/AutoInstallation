@@ -14,11 +14,11 @@ export RTE_SDK=${INSTALL_FOLDER}/${dpdk_pkg}
 add_bashrc "export RTE_SDK=${INSTALL_FOLDER}/${dpdk_pkg}"
 export RTE_TARGET=x86_64-native-linuxapp-icc
 add_bashrc "export RTE_TARGET=x86_64-native-linuxapp-icc"
-export CONFIG_RTE_LIBRTE_PMD_QAT=y
-add_bashrc "export CONFIG_RTE_LIBRTE_PMD_QAT=y"
 
 cd ${INSTALL_FOLDER}
 cd ${dpdk_pkg}
+
+sed -i 's/CONFIG_RTE_LIBRTE_PMD_QAT=n/CONFIG_RTE_LIBRTE_PMD_QAT=y/g' config/common_base
 
 if [ -f x86_64-native-linuxapp-icc/app/testpmd ];then
     echo "DPDK has already installed."
