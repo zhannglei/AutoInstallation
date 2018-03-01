@@ -2,8 +2,8 @@
 
 # run under dpdk path
 
-cp ${SCRIPT_FOLDER}/patch/*.patch .
-patch -p 1 < *.patch
+#cp ${SCRIPT_FOLDER}/patch/*.patch .
+#patch -p 1 < *.patch
 
 cp ${SCRIPT_FOLDER}/patch/l2fwd/main.c  examples/l2fwd/
 cp ${SCRIPT_FOLDER}/patch/l2fwd-crypto/main.c  examples/l2fwd-crypto/

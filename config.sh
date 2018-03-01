@@ -10,10 +10,13 @@ export BASE_FOLDER=${SCRIPT_FOLDER/\/Configs\/Preinstall_script\/Auto_Installati
 #export SCRIPT_FOLDER=${BASE_FOLDER}/Configs/Preinstall_script/Auto_Installation
 export DPDK_FOLDER=${BASE_FOLDER}/Utilities/DPDK
 export QAT_FOLDER=${BASE_FOLDER}/Drivers/QAT
-export PKTGEN_FOLDER=${BASE_FOLDER}/Utilities/Pktgen
+
 export INSTALL_FOLDER=~/BKC
+export INSTALL_FOLDER2=~/PKT
 [ ! -d ${INSTALL_FOLDER} ] && mkdir ${INSTALL_FOLDER}
 export RPM_FOLDER=${BASE_FOLDER}/Configs/Preinstall_RPMs
+export DPDK_FOLDER_FOR_PKTGEN=${RPM_FOLDER}/DPDK
+export PKTGEN_FOLDER=${RPM_FOLDER}/Pktgen
 export LICENSE_FOLDER=${BASE_FOLDER}/ICC
 export ICC_FOLDER=${BASE_FOLDER}/ICC
 
@@ -24,5 +27,3 @@ export ICC_CONFIG_FILE=/opt/intel/compilers_and_libraries/linux/bin/compilervars
 export MY_MAC_FILE=${SCRIPT_FOLDER}/my_mac.txt
 export OTHER_MAC_FILE=${SCRIPT_FOLDER}/other_mac.txt
 
-#cmd line
-export TESTPMD_CMD="./testpmd -c 0xe -n 3 -- -i --nb-cores=2 --nb-ports=2 --eth-peer=0,\$mac1 --eth-peer=1,\$mac2"
