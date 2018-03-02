@@ -13,7 +13,7 @@ export QAT_FOLDER=${BASE_FOLDER}/Drivers/QAT
 
 export INSTALL_FOLDER=~/BKC
 export INSTALL_FOLDER2=~/PKT
-[ ! -d ${INSTALL_FOLDER} ] && mkdir ${INSTALL_FOLDER}
+
 export RPM_FOLDER=${BASE_FOLDER}/Configs/Preinstall_RPMs
 export DPDK_FOLDER_FOR_PKTGEN=${RPM_FOLDER}/DPDK
 export PKTGEN_FOLDER=${RPM_FOLDER}/Pktgen

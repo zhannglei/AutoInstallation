@@ -5,6 +5,7 @@
 
 check_icc_and_install
 
+[ ! -d ${INSTALL_FOLDER} ] && mkdir ${INSTALL_FOLDER}
 cd ${DPDK_FOLDER}
 dpdk_pkg=`ls -F ${INSTALL_FOLDER} |grep dpdk.*/$`
 dpdk_tar=`ls -F |grep dpdk.*[^/]$`
