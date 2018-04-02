@@ -11,6 +11,7 @@ export BASE_FOLDER=${SCRIPT_FOLDER/\/Configs\/Preinstall_script\/Auto_Installati
 export DPDK_FOLDER=${BASE_FOLDER}/Utilities/DPDK
 export QAT_FOLDER=${BASE_FOLDER}/Drivers/QAT
 export PKTGEN_FOLDER=${BASE_FOLDER}/Utilities/Pktgen
+export GTEST_FOLDER=${BASE_FOLDER}/Configs/Preinstall_RPMs/Gtest
 export INSTALL_FOLDER=~/BKC
 [ ! -d ${INSTALL_FOLDER} ] && mkdir ${INSTALL_FOLDER}
 export RPM_FOLDER=${BASE_FOLDER}/Configs/Preinstall_RPMs
