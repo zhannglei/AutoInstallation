@@ -16,7 +16,17 @@ fi
 cd ${INSTALL_FOLDER}
 cd ${gtest_pkg}
 
-./configure
-cmake .
-make
+if [ -f CMakeFiles/gtest.dir/src/gtest-all.cc.o ];then
+    echo "gtest has already installed."
+else
+    ./configure
+    cmake .
+    make
+    if [ -f CMakeFiles/gtest.dir/src/gtest-all.cc.o ];then
+        echo "gtest is installed successfully."
+    else
+        echo "gtest is installed failed."
+        exit 1
+    fi
+fi
 

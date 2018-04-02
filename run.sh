@@ -17,10 +17,9 @@ fi
 3. Install ICC with licenses Only
 4. Install DPDK Only
 5. Install PKTGEN Only
-6. Install QAT Only
-7. Install Gtest Only
-8. System configuration to update extlinux.conf
-9. Presetting for test (Bind DPDK port, mount hugepage)
+6. Install Gtest Only
+7. System configuration to update extlinux.conf
+8. Presetting for test (Bind DPDK port, mount hugepage)
 0. Exit
 Input you choice:"
 
@@ -62,19 +61,19 @@ while [ 1 ]; do
             cd ${SCRIPT_FOLDER}
             . ./install_pktgen.sh
             ;;
+#        "6")
+#            cd ${SCRIPT_FOLDER}
+#            . ./install_qat.sh
+#            ;;
         "6")
-            cd ${SCRIPT_FOLDER}
-            . ./install_qat.sh
-            ;;
-        "7")
             cd ${SCRIPT_FOLDER}
             . ./install_gtest.sh
             ;;
-        "8")
+        "7")
             cd ${SCRIPT_FOLDER}
             . ./config_env.sh
             ;;
-        "9")
+        "8")
             cd ${SCRIPT_FOLDER}
             . ./bind_port.sh
             ;;
