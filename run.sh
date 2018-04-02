@@ -4,11 +4,12 @@ cd $(dirname ${BASH_SOURCE[0]})
 . ./common_fun.sh
 if [[ ! $PATH =~ ${SCRIPT_FOLDER} ]];then
     PATH=$PATH:${SCRIPT_FOLDER}
-    add_bashrc "PATH=$PATH:${SCRIPT_FOLDER}"
+    add_bashrc "PATH=\$PATH:${SCRIPT_FOLDER}"
 fi
     choose_info="
 *****************************************
 *    Wireless BKC Auto Installation     *
+*****************************************
 *****************************************
 
 1. Install all drivers, utilities and BKC testing tools with required patches(step2-7)

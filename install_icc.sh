@@ -7,6 +7,7 @@ cd ${SCRIPT_FOLDER}
 check_rpm_and_install
 
 [ -f ${ICC_CONFIG_FILE} ] && source  ${ICC_CONFIG_FILE} intel64
+[ -f ${ICC_VAR_FILE} ] && source  ${ICC_VAR_FILE} intel64
 icc -v &> /dev/null
 if [ $? == 0 ];then
     echo "ICC has already installed"
@@ -19,6 +20,8 @@ else
     sleep 10
     source ${ICC_CONFIG_FILE} intel64
     add_bashrc "source ${ICC_CONFIG_FILE} intel64"
+    source ${ICC_VAR_FILE} intel64
+    add_bashrc "source ${ICC_VAR_FILE} intel64"
     icc -v &> /dev/null
     if [ $? == 0 ];then
         echo "ICC is installed successfully."

@@ -19,6 +19,7 @@ export ICC_FOLDER=${BASE_FOLDER}/ICC
 
 #config_file
 export ICC_CONFIG_FILE=/opt/intel/compilers_and_libraries/linux/bin/compilervars.sh
+export ICC_VAR_FILE=/opt/intel/bin/iccvars.sh
 
 #mac file
 export MY_MAC_FILE=${SCRIPT_FOLDER}/my_mac.txt
