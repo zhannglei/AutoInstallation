@@ -5,6 +5,7 @@
 cd ${SCRIPT_FOLDER}
 check_rpm_and_install
 
+[ ! -d ${INSTALL_FOLDER} ] && mkdir ${INSTALL_FOLDER}
 cd ${GTEST_FOLDER}
 gtest_pkg=`ls -F ${INSTALL_FOLDER} |grep gtest.*/$`
 gtest_tar=`ls -F |grep gtest.*[^/]$`
