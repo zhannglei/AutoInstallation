@@ -33,4 +33,4 @@ for DEVICE in ${DEVICES}; do
     [ $? == 0 ] && echo "bind port ${DEVICE} success" || "bind port ${DEVICE} failed"
 done
 
-mount_huge
+#mount_huge

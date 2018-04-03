@@ -10,7 +10,6 @@ fi
 *****************************************
 *    Wireless BKC Auto Installation     *
 *****************************************
-*****************************************
 
 1 Install SUT (One key to install all drivers, utilities and BKC testing tools with required patches, step1.1-1.4)
   1.1 Install RPM dependency Only

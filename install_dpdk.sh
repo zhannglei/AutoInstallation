@@ -85,4 +85,4 @@ else
     fi
 fi
 
-mount_huge
+#mount_huge
