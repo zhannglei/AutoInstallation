@@ -12,14 +12,13 @@ fi
 *****************************************
 *****************************************
 
-1. Install all drivers, utilities and BKC testing tools with required patches(step2-7)
-2. Install RPM dependency Only
-3. Install ICC with licenses Only
-4. Install DPDK Only
-5. Install PKTGEN Only
-6. Install Gtest Only
-7. System configuration to update extlinux.conf
-8. Presetting for test (Bind DPDK port, mount hugepage)
+1 Install SUT (One key to install all drivers, utilities and BKC testing tools with required patches, step1.1-1.4)
+  1.1 Install RPM dependency Only
+  1.2 Install ICC with licenses Only
+  1.3 Install DPDK Only
+  1.4 System configuration to update extlinux.conf
+2 Install PKTGEN client
+3 Presetting for test (Bind DPDK port, mount hugepage)
 0. Exit
 Input you choice:"
 
@@ -38,42 +37,34 @@ while [ 1 ]; do
             . ./install_icc.sh
             cd ${SCRIPT_FOLDER}
             . ./install_dpdk.sh
+#            cd ${SCRIPT_FOLDER}
+#            . ./install_qat.sh
             cd ${SCRIPT_FOLDER}
-            . ./install_pktgen.sh
+            . ./config_env.sh
+            ;;
+        "1.1")
             cd ${SCRIPT_FOLDER}
-            . ./install_qat.sh
+            . ./install_rpm.sh
+            ;;
+        "1.2")
+            cd ${SCRIPT_FOLDER}
+            . ./install_icc.sh
+            ;;
+        "1.3")
+            cd ${SCRIPT_FOLDER}
+            . ./install_dpdk.sh
+            ;;
+        "1.4")
             cd ${SCRIPT_FOLDER}
             . ./config_env.sh
             ;;
         "2")
             cd ${SCRIPT_FOLDER}
-            . ./install_rpm.sh
-            ;;
-        "3")
-            cd ${SCRIPT_FOLDER}
-            . ./install_icc.sh
-            ;;
-        "4")
-            cd ${SCRIPT_FOLDER}
-            . ./install_dpdk.sh
-            ;;
-        "5")
-            cd ${SCRIPT_FOLDER}
             . ./install_pktgen.sh
-            ;;
-#        "6")
-#            cd ${SCRIPT_FOLDER}
-#            . ./install_qat.sh
-#            ;;
-        "6")
-            cd ${SCRIPT_FOLDER}
-            . ./install_gtest.sh
-            ;;
-        "7")
             cd ${SCRIPT_FOLDER}
             . ./config_env.sh
             ;;
-        "8")
+        "3")
             cd ${SCRIPT_FOLDER}
             . ./bind_port.sh
             ;;
