@@ -14,7 +14,7 @@ if [ "${gcc_rpm_folder}" == "" ] || [ "${qat_rpm_folder}" == "" ];then
     tar -xvf ${rpm_tar}
     gcc_rpm_folder=`ls -F |grep -i "ICC.*/$"`
     qat_rpm_folder=`ls -F |grep -i "QAT.*/$"`
-    gtest_rpm_folder=`ls -F |grep -i "GTEST.*/$"`
+    gtest_rpm_folder=`ls -F |grep -i "GTEST_RPM.*/$"`
 fi
 cd ${gcc_rpm_folder}
 
