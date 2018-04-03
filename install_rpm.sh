@@ -82,3 +82,6 @@ rpm_install -i mlocate-0.26-6.el7.x86_64
 #rpm_install -i libverto-devel-0.2.5-4.el7.x86_64
 #rpm_install -i krb5-devel-1.13.2-12.el7_2.x86_64
 #rpm_install -i openssl-devel-1.0.1e-51.el7_2.7.x86_64
+
+cd ${SCRIPT_FOLDER}
+. ./install_gtest.sh
