@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 . ./config.sh
-. ./common_fun.sh
-
-cd ${SCRIPT_FOLDER}
-check_rpm_and_install
 
 [ ! -d ${INSTALL_FOLDER} ] && mkdir ${INSTALL_FOLDER}
 cd ${GTEST_FOLDER}
