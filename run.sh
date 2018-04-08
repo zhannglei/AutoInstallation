@@ -17,7 +17,7 @@ fi
   1.3 Install DPDK Only
   1.4 System configuration to update extlinux.conf
 2 Install PKTGEN client
-3 Presetting for test (Bind DPDK port, mount hugepage)
+3 Bind Ethernet to DPDK for BKC testing
 0. Exit
 Input you choice:"
 
