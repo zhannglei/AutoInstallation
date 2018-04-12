@@ -19,12 +19,13 @@ export DPDK_FOLDER_FOR_PKTGEN=${RPM_FOLDER}/DPDK
 export PKTGEN_FOLDER=${RPM_FOLDER}/Pktgen
 export LICENSE_FOLDER=${BASE_FOLDER}/ICC
 export ICC_FOLDER=${BASE_FOLDER}/ICC
+export FLEXRAN_FOLDER=${BASE_FOLDER}/FlexRAN
+export FLEXRAN_SRC=${INSTALL_FOLDER}/FlexRAN
+
 
 #config_file
 export ICC_CONFIG_FILE=/opt/intel/compilers_and_libraries/linux/bin/compilervars.sh
 export ICC_VAR_FILE=/opt/intel/bin/iccvars.sh
 
-#mac file
-export MY_MAC_FILE=${SCRIPT_FOLDER}/my_mac.txt
-export OTHER_MAC_FILE=${SCRIPT_FOLDER}/other_mac.txt
+
 

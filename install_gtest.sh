@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 . ./config.sh
+. ./common_fun.sh
 
 [ ! -d ${INSTALL_FOLDER} ] && mkdir ${INSTALL_FOLDER}
 cd ${GTEST_FOLDER}
@@ -12,6 +13,8 @@ fi
 
 cd ${INSTALL_FOLDER}
 cd ${gtest_pkg}
+export GTEST_ROOT=${INSTALL_FOLDER}/${gtest_pkg}
+add_bashrc "export GTEST_ROOT=${INSTALL_FOLDER}/${gtest_pkg}"
 
 if [ -f CMakeFiles/gtest.dir/src/gtest-all.cc.o ];then
     echo "gtest has already installed."

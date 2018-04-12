@@ -18,6 +18,7 @@ fi
   1.4 System configuration to update extlinux.conf
 2 Install PKTGEN client
 3 Bind Ethernet to DPDK for BKC testing
+4 Install Flexran
 0. Exit
 Input you choice:"
 
@@ -62,6 +63,10 @@ while [ 1 ]; do
             . ./install_pktgen.sh
             cd ${SCRIPT_FOLDER}
             . ./config_env.sh
+            ;;
+        "4")
+            cd ${SCRIPT_FOLDER}
+            . ./install_flexran.sh
             ;;
         "3")
             cd ${SCRIPT_FOLDER}
