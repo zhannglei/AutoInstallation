@@ -20,7 +20,7 @@ mkdir -p ${FLEXRAN_SRC}
 
 flexran_pkg=`ls ${FLEXRAN_FOLDER} |grep -i flexran`
 tar -xvf ${flexran_pkg} -C ${FLEXRAN_SRC}
-3
+
 cd ${FLEXRAN_SRC}
 
 sed -i '/echo -n /d' ./extract.sh
