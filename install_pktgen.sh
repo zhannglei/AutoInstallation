@@ -24,7 +24,7 @@ else
         exit 1
     fi
 
-    cp ${SCRIPT_FOLDER}/patch/*.patch .
+    cp ${PATCH_FOR_DPDK_FOR_PKTGEN}/*.patch .
     patch -p 1 < *.patch
     make install T=${RTE_TARGET}
 fi

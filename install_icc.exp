@@ -1,6 +1,6 @@
 #!/usr/bin/expect -f
 
-set timeout 100
+set timeout 180
 
 spawn ./install.sh
 

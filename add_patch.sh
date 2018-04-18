@@ -3,7 +3,9 @@
 # run under dpdk path
 
 cp ${SCRIPT_FOLDER}/patch/*.patch .
-patch -p 1 < *.patch
+for patch in `ls *.patch`;do
+    patch -p 1 < $patch
+done
 
 #cp ${SCRIPT_FOLDER}/patch/l2fwd/main.c  examples/l2fwd/
 cp ${SCRIPT_FOLDER}/patch/l2fwd-crypto/main.c  examples/l2fwd-crypto/

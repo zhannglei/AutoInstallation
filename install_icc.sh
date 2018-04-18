@@ -13,20 +13,20 @@ if [ $? == 0 ];then
     echo "ICC has already installed"
 else
     cd ${ICC_FOLDER}
-    [ ! -d parallel_studio_xe_2017_update1 ] && tar -xvf parallel_studio_xe_2017_update1.tgz
+    icc_pkg=`ls |grep *.tgz`
+    tar -xvf ${icc_pkg}
     sleep 10
-    cd parallel_studio_xe_2017_update1
+    icc_folder=`ls -F|grep /$`
+    cd $icc_folder
     ${SCRIPT_FOLDER}/install_icc.exp
     sleep 10
     source ${ICC_CONFIG_FILE} intel64
     add_bashrc "source ${ICC_CONFIG_FILE} intel64"
-    source ${ICC_VAR_FILE} intel64
-    add_bashrc "source ${ICC_VAR_FILE} intel64"
     icc -v &> /dev/null
     if [ $? == 0 ];then
         echo "ICC is installed successfully."
         cd ..
-        [ -d parallel_studio_xe_2017_update1 ] && rm -rf parallel_studio_xe_2017_update1
+        [ -d $icc_folder ] && rm -rf $icc_folder
     else
         echo "ICC is installed failed."
     fi
