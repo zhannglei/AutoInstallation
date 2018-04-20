@@ -4,11 +4,11 @@
 
 [ ! -d ${INSTALL_FOLDER} ] && mkdir ${INSTALL_FOLDER}
 cd ${GTEST_FOLDER}
-gtest_pkg=`ls -F ${INSTALL_FOLDER} |grep gtest.*/$`
+gtest_pkg=`ls -F ${INSTALL_FOLDER} |grep gtest.*/$ |sed 's/\///g'`
 gtest_tar=`ls -F |grep gtest.*[^/]$`
 if [ "${gtest_pkg}" == "" ];then
     unzip ${gtest_tar} -d ${INSTALL_FOLDER}
-    gtest_pkg=`ls -F ${INSTALL_FOLDER} |grep gtest.*/$`
+    gtest_pkg=`ls -F ${INSTALL_FOLDER} |grep gtest.*/$ |sed 's/\///g'`
 fi
 
 cd ${INSTALL_FOLDER}

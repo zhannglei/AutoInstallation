@@ -45,8 +45,8 @@ cd $BASE/framework/bbupool/; make clean;make
 
 
 ###########RefStack compile######################
-cd $BASE/build/testapp/linux/  ;   chmod +x build.sh; ./build.sh xclean; ./build.sh
-cd $BASE/build/testmac/ ;   chmod +x build.sh; ./build.sh xclean; ./build.sh
-cd $BASE/build/testue/  ;   chmod +x build.sh; ./build.sh xclean; ./build.sh
-cd $BASE/build/l1app/   ;   chmod +x build.sh; ./build.sh xclean; ./build.sh
+cd $BASE/build/lte/testapp/linux/  ;   chmod +x build.sh; ./build.sh xclean; ./build.sh
+cd $BASE/build/lte/testmac/ ;   chmod +x build.sh; ./build.sh xclean; ./build.sh
+cd $BASE/build/lte/testue/  ;   chmod +x build.sh; ./build.sh xclean; ./build.sh
+cd $BASE/build/lte/l1app/   ;   chmod +x build.sh; ./build.sh xclean; ./build.sh
 
