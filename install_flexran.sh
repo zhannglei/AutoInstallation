@@ -89,6 +89,12 @@ cd $BASE/build/lte/l1app/   ;   chmod +x build.sh; ./build.sh xclean; ./build.sh
 
 sleep 2
 
+read -p "FlexRAN has already been installed, need to reboot to set environment variable, will reboot after applied [y/n]:" choose
+if [ "$choose" = "y" ] || [ "$choose" = "Y" ];then
+    echo "System will reboot. "
+    reboot
+fi
+
 #cd ${FLEXRAN_SRC}
 #${SCRIPT_FOLDER}/flexran/create_re_bin.sh
 
