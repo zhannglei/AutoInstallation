@@ -85,3 +85,11 @@ rpm_install -i mlocate-0.26-6.el7.x86_64
 
 cd ${SCRIPT_FOLDER}
 . ./install_gtest.sh
+
+lspci |grep XL710
+if [ $? == 0 ];then
+    echo "Network is SRIOV, will install i40evf driver"
+    sleep 2
+    cd ${SCRIPT_FOLDER}
+    . ./install_i40evf.sh
+fi

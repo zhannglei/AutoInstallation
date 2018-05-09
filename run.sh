@@ -19,6 +19,7 @@ fi
 2 Install PKTGEN client
 3 Bind Ethernet to DPDK for BKC testing
 4 Install Flexran
+5 Install QAT
 0. Exit
 Input you choice:"
 
@@ -37,8 +38,6 @@ while [ 1 ]; do
             . ./install_icc.sh
             cd ${SCRIPT_FOLDER}
             . ./install_dpdk.sh
-#            cd ${SCRIPT_FOLDER}
-#            . ./install_qat.sh
             cd ${SCRIPT_FOLDER}
             . ./config_env.sh
             ;;
@@ -64,13 +63,17 @@ while [ 1 ]; do
             cd ${SCRIPT_FOLDER}
             . ./config_env.sh
             ;;
+        "3")
+            cd ${SCRIPT_FOLDER}
+            . ./bind_port.sh
+            ;;
         "4")
             cd ${SCRIPT_FOLDER}
             . ./install_flexran.sh
             ;;
-        "3")
+        "5")
             cd ${SCRIPT_FOLDER}
-            . ./bind_port.sh
+            . ./install_qat.sh
             ;;
         "*")
             echo "Your choose is not match, please try again."
